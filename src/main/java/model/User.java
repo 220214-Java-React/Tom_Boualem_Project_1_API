@@ -1,0 +1,73 @@
+package model;
+
+
+
+
+public class User {
+
+    private int user_id;
+    private String username;
+    private String password;
+    private String Given_Name;
+    private String Surname;
+
+    public User(){
+    }
+
+
+    public User (String username, String password){
+        this.username = username;
+        this.password = password;
+    }
+
+
+    public User (int user_id, String username, String password, String Given_Name, String Surname) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.Given_Name = Given_Name;
+        this.Surname = Surname;
+    }
+
+
+    public int getUserID(){
+        return user_id;
+    }
+    public void setID (int user_id) {
+        this.user_id = user_id;
+    }
+
+
+    public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+    public String getGiven_Name() {
+        return Given_Name;
+    }
+    public void setGiven_Name(String Given_Name){
+        this.Given_Name = Given_Name;
+    }
+
+
+    public String getSurname() {
+        return Surname;
+    }
+    public void setSurname(String Surname) {
+        this.Surname = Surname;
+    }
+
+
+}
