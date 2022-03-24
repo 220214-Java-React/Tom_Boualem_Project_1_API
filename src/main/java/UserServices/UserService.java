@@ -27,7 +27,7 @@ public class UserService {
     }
 
     public void register(){
-        System.out.println("\n-- Registration --");
+        System.out.println("\n-- Create User --");
         userRepository.create(buildUser());
     }
 
