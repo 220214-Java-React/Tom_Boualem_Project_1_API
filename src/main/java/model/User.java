@@ -5,6 +5,7 @@ package model;
 
 public class User {
 
+
     private int user_id;
     private String username;
     private String password;
@@ -86,11 +87,6 @@ public class User {
     public String getrole(){return role;}
     public void setrole(String role) {this.role = role;}
 
-
-    //Login
-    public void Login() {
-
-    }
 
 
 }

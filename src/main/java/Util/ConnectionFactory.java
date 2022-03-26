@@ -12,11 +12,11 @@ public class ConnectionFactory {
 
     // "jdbc:<dialect>://<host name>:<port>/<database name>?currentSchema=<schema name>"
     private static final String url =
-            "jdbc:postgresql://java-react.cghbrlmpd8rj.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=ERS_P1";
+            "jdbc:postgresql://java-react-bc.cf8jaln1osdu.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=ERS";
 
     // username and password set
     private static final String username = "postgres";
-    private static final String password = "kQ5s628vVwW42Q5";
+    private static final String password = "Imzoughen1985";
 
 
     // this method creates a single instance if needed otherwise, returns the existing one.
