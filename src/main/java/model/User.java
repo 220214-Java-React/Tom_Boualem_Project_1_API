@@ -6,26 +6,25 @@ package model;
 public class User {
 
 
-    private int user_id;
+    private String user_id;
     private String username;
     private String password;
     private String Given_Name;
     private String Surname;
     private String email;
+    private boolean is_active;
     private String role;
 
     public User(){
     }
-
-
     public User (String username, String password){
         this.username = username;
         this.password = password;
     }
-
-
-    public User (int user_id, String username, String password, String email, String Given_Name, String Surname
-                    , String role) {
+    public User (String user_id, String username,
+                 String password, String email,
+                 String Given_Name, String Surname
+                        , String role) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
@@ -34,17 +33,10 @@ public class User {
         this.Surname = Surname;
         this.role = role;
     }
-
-
-
-
-    public int getUserID(){
-        return user_id;
-    }
-    public void setID (int user_id) {
+    public String getUserID(){return user_id;}
+    public void setID (String user_id) {
         this.user_id = user_id;
     }
-
 
     public String getUsername() {
         return username;
@@ -86,7 +78,4 @@ public class User {
 
     public String getrole(){return role;}
     public void setrole(String role) {this.role = role;}
-
-
-
 }

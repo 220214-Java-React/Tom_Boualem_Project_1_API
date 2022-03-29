@@ -13,17 +13,23 @@ public class UserRepository implements DAO<User>{
     private static final Logger logger = LogManager.getLogger(UserRepository.class);
 
     @Override
+    //Method to add the new admin to database-we must enter the NOT NULL values
     public void create(User user){
-        // here we write our SQL to create a user
+        // in this step  we write SQL to create a user to the DB
         Connection connection = null;
-
         try {
             connection = ConnectionFactory.getConnection();
-            String sql = "insert into users(username, password) values (?, ?)";
+            String sql = "insert into ers_users(user_id,username,email,password,given_name,surname,is_active) " +
+                    "values (?,?,?,?,?,?,?)";
 
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, user.getUsername());
-            stmt.setString(2, user.getPassword());
+            stmt.setString(1, user.getUserID());
+            stmt.setString(2, user.getUsername());
+            stmt.setString(3, user.getemail());
+            stmt.setString(4, user.getPassword());
+            stmt.setString(5, user.getGiven_Name());
+            stmt.setString(6, user.getSurname());
+            stmt.setString( 7,user.getrole());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -38,7 +44,7 @@ public class UserRepository implements DAO<User>{
             }
         }
     }
-
+     //---------------------------------------------------------------------
     public User getByUsername(String username){
         User user = null;
 
@@ -47,10 +53,28 @@ public class UserRepository implements DAO<User>{
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, username);
-
-            // this
             ResultSet resultSet = stmt.executeQuery();
+            if(resultSet.next()){
+                user = new User(
+                        resultSet.getString("username"),
+                        resultSet.getString("password")
+                );
+            }
+        } catch (SQLException e) {
+            logger.warn(e.getMessage(), e);
+        }
+        return user;
+    }
+  // I want to sort by the ROle_ID to make sure Admin is separete
+    public User getRole_ID(String ROLE_ID){
+        User user = null;
 
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            String sql = "select * from users where Role_ID = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setString(1, ROLE_ID);
+            ResultSet resultSet = stmt.executeQuery();
             if(resultSet.next()){
                 user = new User(
                         resultSet.getString("username"),
@@ -63,19 +87,23 @@ public class UserRepository implements DAO<User>{
         return user;
     }
 
+
+
+
+//------------------------------------------------------------
     // select * from users where id = ?
     @Override
-    public User getById(int id){
+    public User getById(String user_id){
 
         User user = null;
-        String sql = "select * from users where id = ?";
+        String sql = "select * from users where user_id = ?";
         Connection connection;
 
         try{
             connection = ConnectionFactory.getConnection();
             PreparedStatement stmt = connection.prepareStatement(sql);
 
-            stmt.setInt(1, id);
+            stmt.setString(1, user_id);
 
             ResultSet rs = stmt.executeQuery();
 
@@ -88,16 +116,13 @@ public class UserRepository implements DAO<User>{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return user;
     }
-
     // select * from users
     @Override
     public List<User> getAll(){
         return null;
     }
-
     @Override
     public void update(User user){
 
@@ -105,7 +130,7 @@ public class UserRepository implements DAO<User>{
 
     // delete from users where id = ?
     @Override
-    public void deleteById(int id){
+    public void deleteById(String user_id){
 
     }
 }

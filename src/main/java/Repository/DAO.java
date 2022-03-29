@@ -16,11 +16,11 @@ public interface DAO<T> {
 
     void create(T t);
 
-    T getById(int id);
+    T getById(String id);
 
     List<T> getAll();
 
     void update(T t);
 
-    void deleteById(int id);
+    void deleteById(String id);
 }
