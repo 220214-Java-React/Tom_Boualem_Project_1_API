@@ -40,13 +40,16 @@ import UserServices.*;
                     "3) Delete User",
                     "0) Log Out"
             };
+
             private Admin() {
                 super(ScannerFactory.getScanner());
             }
+
             public int display() {
                 System.out.println("\n-- Admin Menu --");
                 return super.display(this.menuOptions);
             }
+        }
             //--------------------------------------------
             // Financial Manager Menu
             public static class FinanceManager extends Menu {
@@ -64,14 +67,14 @@ import UserServices.*;
                     return super.display(this.menuOptions);
                 }
             }
-            public static class EmployeeMenu extends Menu {
+            public static class Employee extends Menu {
                 private final String[] menuOptions = {
                         "1) Submit New Reimbursement",
                         "2) See All your Reimbursement",
                         "3) update your pending Reimbursement ",
                         "0) Log Out"
                 };
-                private EmployeeMenu() {
+                private Employee() {
                     super(ScannerFactory.getScanner());
                 }
                 public int display() {
@@ -79,8 +82,8 @@ import UserServices.*;
                     return super.display(this.menuOptions);
                 }
             }
-        }
     }
+
 
 
 

@@ -21,12 +21,10 @@ public class UserService {
         this.userRepository = new UserRepository();
         currentUser = null;
     }
-
     public void register(){
         System.out.println("\n-- Create User --");
         userRepository.create(buildUser());
     }
-
     public User login(){
         System.out.println("\n Login ");
         return validate();

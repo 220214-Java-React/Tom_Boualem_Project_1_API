@@ -10,14 +10,13 @@ public abstract class Menu {
         this.scanner = scanner;
     }
     //--------------------------------------------------
-    int display(String[] menuOptions){
+     int display(String[] menuOptions){
         for(String option : menuOptions){
             System.out.println(option);
         }
 
-        return getInput(menuOptions.length - 1);
+        return getInput(menuOptions.length -1);
     }
-
     private int getInput(int options){
         int userInput = -1;
         int attempts = 0;
@@ -32,7 +31,6 @@ public abstract class Menu {
                 attempts++;
             }
         } while((userInput < 0 || userInput > options) && attempts < 3);
-
         return userInput;
     }
 }
