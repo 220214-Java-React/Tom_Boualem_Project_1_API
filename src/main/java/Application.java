@@ -1,6 +1,4 @@
-import UserServices.Admin;
-import UserServices.FinanceManager;
-import UserServices.UserService;
+import UserServices.*;
 import Util.ScannerFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,10 +6,11 @@ import Repository.UserRepository;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import model.User;
-import UserServices.MenuService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.security.NoSuchAlgorithmException;
+
+
 public class Application {
     private static User currentUser;
     private static UserService userService;
@@ -46,14 +45,15 @@ public class Application {
                 break;
         }
     }
-          // ---------- Admin menu
+
+    static Admin admin = new Admin();      // ---------- Admin menu
     private static void homeMenuAdmin() throws NoSuchAlgorithmException {
         switch (MenuService.AdminMenu.display()) {
-            case 1://CreateUser();
+            case 1: admin.createUser();
                 break;
-            case 2://UpdateUser();
+            case 2: admin.updateUser();
                 break;
-            case 3://DeleteUser();
+            case 3: admin.deleteUser();
                 break;
             case 0:
                 currentUser = null;
@@ -62,13 +62,15 @@ public class Application {
                 break;
         }
     }
+
+    static FinanceManager manager = new FinanceManager();
     private static void homeMenuFinanceManager() {
             switch (MenuService.ManagerMenu.display()) {
-                case 1://ViewAllReimbursements();
+                case 1: manager.viewAll();
                     break;
-                case 2: //ViewReimbursementsByStatus();
+                case 2: manager.viewByType();
                     break;
-                case 3://AproveReimbursement();
+                case 3: manager.approveOrDeny();
                     break;
                 case 0:
                     currentUser = null;
@@ -77,13 +79,15 @@ public class Application {
                     break;
             }
         }
+
+        static Employee employee = new Employee();
         private static void homeMenuEmployee() {
                 switch (MenuService.EmployeeMenu.display()) {
-                    case 1://submitReimbursement() ;
+                    case 1: employee.submit();
                         break;
-                    case 2://viewReimbursements();
+                    case 2: employee.view();
                         break;
-                    case 3://UpdateReimbursement();
+                    case 3: employee.update();
                         break;
                     case 0:
                         currentUser = null;

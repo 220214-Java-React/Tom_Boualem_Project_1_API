@@ -11,6 +11,17 @@ public class FinanceManager extends User {
 
         UserService login = new UserService();
         login.login();
+    }
+
+    public void viewAll() {
+
+    }
+
+    public void viewByType() {
+
+    }
+
+    public void approveOrDeny () {
 
     }
 

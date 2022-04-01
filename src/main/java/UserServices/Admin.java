@@ -24,4 +24,12 @@ public class Admin extends User {
         register.register();
     }
 
+    public void updateUser() {
+
+    }
+
+    public void deleteUser() {
+
+    }
+
 }

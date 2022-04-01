@@ -11,4 +11,16 @@ public class Employee extends User {
         UserService login = new UserService();
         login.login();
     }
+
+    public void submit() {
+
+    }
+
+    public void view() {
+
+    }
+
+    public void update() {
+
+    }
 }
