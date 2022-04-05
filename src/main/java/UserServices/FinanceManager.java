@@ -9,8 +9,7 @@ public class FinanceManager extends User {
 
     public void manager() throws NoSuchAlgorithmException {
 
-        UserService login = new UserService();
-        login.login();
+
     }
 
     public void viewAll() {

@@ -12,7 +12,7 @@ public class ConnectionFactory {
 
     // "jdbc:<dialect>://<host name>:<port>/<database name>?currentSchema=<schema name>"
     private static final String url =
-            "jdbc:postgresql://java-react-bc.cf8jaln1osdu.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=ERS";
+            "jdbc:postgresql://java-react-bc.cf8jaln1osdu.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=ers";
 
     // username and password set
     private static final String username = "postgres";

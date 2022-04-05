@@ -33,11 +33,14 @@ public class Application {
         }
     private static void mainMenu() throws NoSuchAlgorithmException {
         switch(MenuService.main.display()){
-            case 1: homeMenuAdmin();
+            case 1: currentUser = userService.login();
+            homeMenuAdmin();
                 break;
-            case 2: homeMenuFinanceManager();
+            case 2: currentUser = userService.login();
+            homeMenuFinanceManager();
                 break;
-            case 3: homeMenuEmployee();
+            case 3: currentUser = userService.login();
+            homeMenuEmployee();
                   break;
             case 0: System.exit(0);
                 break;
@@ -66,7 +69,8 @@ public class Application {
     static FinanceManager manager = new FinanceManager();
     private static void homeMenuFinanceManager() {
             switch (MenuService.ManagerMenu.display()) {
-                case 1: manager.viewAll();
+                case 1:
+                    manager.viewAll();
                     break;
                 case 2: manager.viewByType();
                     break;

@@ -44,12 +44,13 @@ public class UserRepository implements DAO<User>{
             }
         }
     }
-     //---------------------------------------------------------------------
+
+    //---------------------------------------------------------------------
     public User getByUsername(String username){
         User user = null;
 
         try (Connection connection = ConnectionFactory.getConnection()) {
-            String sql = "select * from users where username = ?";
+            String sql = "select * from ers_users where username = ?";
             PreparedStatement stmt = connection.prepareStatement(sql);
 
             stmt.setString(1, username);
