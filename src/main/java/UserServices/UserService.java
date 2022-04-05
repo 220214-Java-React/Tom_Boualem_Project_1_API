@@ -8,12 +8,17 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 import Util.ScannerFactory;
 import org.apache.logging.log4j.LogManager;
+
+
+
+
 public class UserService {
-    private static User currentUser;
-    private final Logger logger;
-    private final Scanner scanner;
-    private final MessageDigest messageDigest;
-    private final UserRepository userRepository;
+private static User currentUser;
+private final Logger logger;
+private final Scanner scanner;
+private final MessageDigest messageDigest;
+private final UserRepository userRepository;
+
     public UserService() throws NoSuchAlgorithmException {
         this.logger = LogManager.getLogger(UserService.class);
         this.scanner = ScannerFactory.getScanner();

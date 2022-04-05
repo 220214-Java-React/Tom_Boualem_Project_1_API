@@ -12,11 +12,25 @@ public class FinanceManager extends User {
     public void FinancemanagerLogin() throws NoSuchAlgorithmException {
         UserService login = new UserService();
         login.login();
+<<<<<<< HEAD
       Reimbursements FinaceManagerRS=new Reimbursements();
 
 
 
 
+=======
+    }
+
+    public void viewAll() {
+
+    }
+
+    public void viewByType() {
+
+    }
+
+    public void approveOrDeny () {
+>>>>>>> 79994273035ad20e7e98629e861218c1aba0f738
 
     }
 

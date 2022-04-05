@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import UserServices.UserService;
 import model.Reimbursements;
+=======
+import UserServices.*;
+import Util.ScannerFactory;
+>>>>>>> 79994273035ad20e7e98629e861218c1aba0f738
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -8,7 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.User;
+<<<<<<< HEAD
 import UserServices.MenuService;
+=======
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import java.security.NoSuchAlgorithmException;
+
+>>>>>>> 79994273035ad20e7e98629e861218c1aba0f738
 
 public class Application {
     private static User currentUser;
@@ -51,6 +63,7 @@ public class Application {
                     break;
             }
         }
+<<<<<<< HEAD
   // ---------- Admin menu
     private static void homeMenuAdmin() throws NoSuchAlgorithmException {
         switch (MenuService.AdminMenu.display()) {
@@ -63,8 +76,18 @@ public class Application {
                 //CreateUser();
                 break;
             case 2: //UpdateUser();
+=======
+    }
+
+    static Admin admin = new Admin();      // ---------- Admin menu
+    private static void homeMenuAdmin() throws NoSuchAlgorithmException {
+        switch (MenuService.AdminMenu.display()) {
+            case 1: admin.createUser();
                 break;
-            case 3://DeleteUser();
+            case 2: admin.updateUser();
+>>>>>>> 79994273035ad20e7e98629e861218c1aba0f738
+                break;
+            case 3: admin.deleteUser();
                 break;
             case 0:
                 currentUser = null;
@@ -73,6 +96,7 @@ public class Application {
                 break;
         }
     }
+<<<<<<< HEAD
     // ManagerFunctions  is Boualem Task
     private static void homeMenuFinanceManager() {
             switch (MenuService.ManagerMenu.display()) {
@@ -80,8 +104,17 @@ public class Application {
                     break;
                 case 2://view all reimbursement and sort base on TYpe or status
 
+=======
+
+    static FinanceManager manager = new FinanceManager();
+    private static void homeMenuFinanceManager() {
+            switch (MenuService.ManagerMenu.display()) {
+                case 1: manager.viewAll();
                     break;
-                case 3://AproveReimbursement();
+                case 2: manager.viewByType();
+>>>>>>> 79994273035ad20e7e98629e861218c1aba0f738
+                    break;
+                case 3: manager.approveOrDeny();
                     break;
                 case 0:
                     currentUser = null;
@@ -91,13 +124,15 @@ public class Application {
             }
             //  Employee is Tom Task
         }
+
+        static Employee employee = new Employee();
         private static void homeMenuEmployee() {
                 switch (MenuService.EmployeeMenu.display()) {
-                    case 1://submitReimbursement() ;
+                    case 1: employee.submit();
                         break;
-                    case 2://viewReimbursements();
+                    case 2: employee.view();
                         break;
-                    case 3://UpdateReimbursement();
+                    case 3: employee.update();
                         break;
                     case 0:
                         currentUser = null;
