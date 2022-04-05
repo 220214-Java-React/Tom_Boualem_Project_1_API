@@ -1,27 +1,10 @@
 package model;
-import java.text.SimpleDateFormat;
+import jdk.net.SocketFlow;
+import java.*;
+import java.security.Timestamp;
 import java.util.*;
-<<<<<<< HEAD
-public class Reimbursements {
-    String Status;
-    double amount;
-    String description;
-    String  submitted;
-    String resolved;
-    String Type;
-    //-----------------
-    int Reimbursement_ID;
-    int max = 999999;
-    int min = 111111;
-    int range = max - min + 1;
-    private int getReimbursement_ID() {
-        return Reimbursement_ID = (int) (Math.random() * range) + min;
-        }
-=======
-
-
 public class Reimbursements  {
-
+    List <Reimbursements>RS=new ArrayList<>();
     private String reimbursement_ID;
     private double amount;
     private String paymentID;
@@ -32,204 +15,211 @@ public class Reimbursements  {
     private String description;
     private Timestamp submitted;
     private Timestamp resolved;
-    
-    
-    public Reimbursements(){
-    
-    }
-
-    public Reimbursements (String reimbursement_ID, double amount, String paymentID, String author_ID, 
+    public Reimbursements(){ };
+    public Reimbursements (String reimbursement_ID, double amount, String paymentID, String author_ID,
                            String resolver_ID, String status_ID, String type_ID, String description, 
                            Timestamp submitted,  Timestamp resolved)
-    {
-        this.reimbursement_ID = reimbursement_ID; 
-        this.amount = amount;
-        this.paymentID = paymentID;
-        this.author_ID = author_ID;
-        this.resolver_ID = resolver_ID;
-        this.status_ID = status_ID;
-        this.type_ID = type_ID;
-        this.description = description; 
-        this.submitted = submitted;
-        this.resolved = resolved;
-        
+    {this.reimbursement_ID = reimbursement_ID;this.amount = amount;this.paymentID = paymentID;this.author_ID = author_ID;this.resolver_ID = resolver_ID;
+        this.status_ID = status_ID;this.type_ID = type_ID;this.description = description;this.submitted = submitted;this.resolved = resolved;}
+
+    public Reimbursements(String userID, String rs_id, Double amount,String status_ID) {
     }
-    
     //Getters and Setters:
-    
     //Reimbursement ID -----------------------------------
     public String getreimbursement_ID() {
         return reimbursement_ID;
     }
-    public void setreimbursement_ID(String reimbursement_ID) {
-        this.reimbursement_ID = reimbursement_ID;
-    }
-
-    
+    public void setreimbursement_ID(String reimbursement_ID) {this.reimbursement_ID = reimbursement_ID;}
     //Amount -----------------------------------------------
-    public double getamount() {
-        return amount;
-    }
-    public void setamount(double amount) {
-        this.amount = amount;
-    }
-
-    
+    public double getamount() {return amount;}
+    public void setamount(double amount) {this.amount = amount;}
     //Payment ID ------------------------------------------------
-    public String getpaymentID() {
-        return paymentID;
-    }
-    public void setpaymentID(String paymentID) {
-        this.paymentID = paymentID;
-    }
-
-    
-    
+    public String getpaymentID() {return paymentID;}
+    public void setpaymentID(String paymentID) {this.paymentID = paymentID;}
     //Author ID -----------------------------------------------------
-    public String getauthor_ID() {
-        return author_ID;
-    }
-    public void setauthor_ID(String author_ID) {
-        this.author_ID = author_ID;
-    }
-    
-    
+    public String getauthor_ID() {return author_ID;}
+    public void setauthor_ID(String author_ID) {this.author_ID = author_ID;}
     //Resolver ID ---------------------------------------------------
-    public String getresolver_ID() {
-        return resolver_ID;
-    }
-    public void setresolver_ID(String resolver_ID) {
-        this.resolver_ID = resolver_ID;
-    }
-    
-    
+    public String getresolver_ID() {return resolver_ID;}
+    public void setresolver_ID(String resolver_ID) {this.resolver_ID = resolver_ID;}
     //Status ID -------------------------------------------------------
-    public String getstatus_ID() {
-        return status_ID;
-    }
-    public void setstatus_ID(String status_ID) {
-        this.status_ID = status_ID;
-    }
-    
-    
-    //Type ID ----------------------------------------------------------
-    public String gettype_ID() {
-        return type_ID;
-    }
-    public void settype_ID(String type_ID) {
-        this.type_ID = type_ID;
-    }
-    
-    
+    public String getstatus_ID() {return status_ID;}
+    public void setstatus_ID(String status_ID) {this.status_ID = status_ID;}
+   //Type ID ----------------------------------------------------------
+    public String gettype_ID() { return type_ID;}
+    public void settype_ID(String type_ID) {this.type_ID = type_ID;}
     //Description ---------------------------------------------------------
-    public String getdescription() {
-        return description;
-    }
-    public void setdescription(String description) {
-        this.description = description;
-    }
-    
-    
+    public String getdescription() {return description;}
+    public void setdescription(String description) {this.description = description;}
     //Submitted Status ----------------------------------------------------
-    public Timestamp getsubmitted() {
-        return submitted;
-    }
-    public void setsubmitted(Timestamp submitted) {
-        this.submitted = submitted;
-    }
-    
-    
+    public Timestamp getsubmitted() {return submitted;}
+    public void setsubmitted(Timestamp submitted) {this.submitted = submitted;}
     //Resolved Status ----------------------------------------------------------
-    public Timestamp getresolved() {
-        return resolved;
-    }
-    public void setresolved(Timestamp resolved) {
-        this.resolved = resolved;
-    }
-
-
+    public Timestamp getresolved() {return resolved;}
+    public void setresolved(Timestamp resolved) {this.resolved = resolved;}
     // END OF GETTERS AND SETTERS
-    
+public void addToRSList(){
+    Scanner sc1=new Scanner(System.in);
+    Scanner sc2=new Scanner(System.in);
+    int ch;
+    do { System.out.println("1.to create an RS");
+        System.out.println("2.to view all RS");
+        System.out.println("3.to search by an Status");
+        System.out.println("4.to Delete an RS");
+        System.out.println("5.to update  an RS");
+        System.out.println("Please Select What you want to do:");
+        ch=sc1.nextInt();
+        User currentUser=new User();
+        switch (ch) {
+            case 1:
+            String author_ID= currentUser.getUserID();
+            System.out.println("User ID :  "+author_ID);
+            System.out.println("Enter RS ID");
+            String RS_ID =sc1.nextLine();
+            System.out.println("Enter RS Amount :");
+            Double Amount=sc2.nextDouble();
+            status_ID="Pending";
+                RS.add(new Reimbursements(author_ID,RS_ID,Amount,status_ID));
+            break;
+            case 2:
+                System.out.println("++++++++++++++++++++++++++++++++++");
+                Iterator<Reimbursements> i=RS.iterator();
+                while(i.hasNext()){
+                    Reimbursements rs=i.next();
+                    System.out.println(rs);
+                }
+                System.out.println("++++++++++++++++++++++++++++++++++++");
+                System.out.println(RS);
+             break;
+            case 3:
+                boolean found=false;
+                System.out.println("select a status ID to search : ");
+                String status_ID=sc2.nextLine();
+               i=RS.iterator();
+               while(i.hasNext()){
+                   Reimbursements rs=i.next();
+                   if(rs.getstatus_ID()==status_ID){
+                    System.out.println(rs);
+                    found=true;
+                   }
+               }
+               System.out.println("++++++++++++++++++++++++++++++++++++++++");
+               if(!found){System.out.println("Status Not Found");}
 
->>>>>>> 79994273035ad20e7e98629e861218c1aba0f738
+            break;
+// ================= we can use this in the admin to remove users/delete them
+            case 4:
+                found=false;
+                System.out.println("Enter Rs_IS to delete : ");
+                RS_ID= sc2.nextLine();
+                System.out.println("++++++++++++++++++++++++++++++++++");
+                i=RS.iterator();
+                while(i.hasNext() ){
+                    Reimbursements rs= i.next();
+                    if (rs.getreimbursement_ID()==RS_ID){
+                        i.remove();
+                        found=true;
+                    }
+                } if (!found){System.out.println("RS Not Found");}else {System.out.println("Rs deleted successfully !!!");
+                }
+                break;
+//========================================== update RS Status ---
+            case 5:
+                found =false;
+                System.out.println("Enter RS Status to update");
+                String statusID=sc2.nextLine();
+                System.out.println(" ++++++++++++++++++++++++++++++++++++");
 
-    //------------------------------------------------------------
-    int paymentID;
-    private int getPaymentID() {return pID = (int) (Math.random() * range) + min;}
-    //--------------------------------------------------------------
-    Scanner sc = new Scanner(System.in);
-    Scanner sc1= new Scanner(System.in);
-    int pID = getPaymentID();
-    int rID = getReimbursement_ID();
-    Collection<Reimbursements> reimbursement = new ArrayList<Reimbursements>();
+                ListIterator<Reimbursements>li=RS.listIterator();
+                while(li.hasNext()){
+                    Reimbursements rs=li.next();
+                    if(rs.getstatus_ID()==statusID){
 
-<<<<<<< HEAD
-    //----------------------------------
-    public void reimbursement() {
-        String submitted = new SimpleDateFormat("yyyy/MM/dd -- HH:mm:ss").format(new Date());
-        this.submitted = submitted;
-        getRSType();
-        System.out.println("Date Submitted :" + submitted);
-        //----------
 
-        //------------
-        System.out.println("Enter the amount");
-        this.amount = sc.nextDouble();
-        //-----------------
-        System.out.print("Please enter a Description");
-        this.description = sc1.nextLine();
-        // ----------------------------------
-          getRSstatus();
+                        author_ID =getauthor_ID();
+                        RS_ID=getreimbursement_ID();
+                        Amount=getamount();
+                        System.out.println(author_ID+" "+RS_ID+" "+ Amount);
+                        System.out.println("Enter a new status :");
+                        statusID=sc2.nextLine();
+                    li.set(new Reimbursements(author_ID,RS_ID,Amount,statusID));
+                    found=true;
+                    }
+                }
+                if (!found){ System.out.println("Status not found");}
+                else {System.out.println(" has been Record updated");}
+                 break;
         }
-   private void getRSstatus () {
-        String status[] = {"Pending", "Approved", "Denied"};
-        System.out.println("Enter 1) to Approve  the RS or 2) to Deny or 0) to let it pending");
-            int s = sc.nextInt();
-        if (s==1){
-            this.paymentID = this.pID;
-              this.Status = status[s];
-            String Resolved = new SimpleDateFormat("yyyy/MM/dd -- HH:mm:ss").format(new Date());
-            this.resolved=Resolved;
-            System.out.println( "This RS: "+this.Reimbursement_ID + "--Payment ID : "+this.paymentID+" has been  Aproved on: "+this.resolved);
-          }else if (s==2) {this.Status=status[s];
-            String Resolved = new SimpleDateFormat("yyyy/MM/dd -- HH:mm:ss").format(new Date());
-            this.resolved=Resolved;
-            System.out.println( "This RS " + this.Reimbursement_ID +"  " +" has been  Denied on :"+this.resolved);
-        } else if(s==0) {
-            this.Status=status[s];
-            System.out.println("This RS " + this.Reimbursement_ID +"The status of the RS is pending"); }
+
+        }while(ch!=0);
+
     }
-    private void getRSType(){
-        String Type[] = {"Other","Lodging", "Travel", "Food"};
-        System.out.println("please select type of  RS :  1)Lodging 2)travel 3)Food or 0) for Other");
-        int t = sc.nextInt();
-        if (t==1){
-            this.Type = Type[t];
-            System.out.println( "This RS "+this.Reimbursement_ID + "Type is :" +this.Type);
-        }else if (t==2) {this.Type=Type[t];
-               System.out.println( "This RS " + this.Reimbursement_ID +"  " +" Type is  :"+this.Type);
-        } else if(t==3) {
-            this.Type=Type[t];
-            System.out.println("This RS " + this.Reimbursement_ID +"The status of the RS is pending"); }
-        if(t==0) {
-            this.Type=Type[t];
-            System.out.println("This RS " + this.Reimbursement_ID +" is of type "+this.Type); }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    public void ManagerUpdateRS(){
+        List <Reimbursements>RS=new ArrayList<>();
+        Scanner sc1=new Scanner(System.in);
+        Scanner sc2=new Scanner(System.in);
+        int ch;
+        do {
+            System.out.println("1.to view all RS");
+            System.out.println("2.to search by an Status");
+            System.out.println("3.to update  an RS");
+            System.out.println("Please Select What you want to do:");
+            ch=sc1.nextInt();
+            User currentUser=new User();
+            switch (ch) {
+                case 1:
+                    System.out.println("+++++++++++++++the Manager ca view all reimbursements +++++++++++++++++++");
+                    Iterator<Reimbursements> i=RS.iterator();
+                    while(i.hasNext()){
+                        Reimbursements rs=i.next();
+                        System.out.println(rs);
+                    }
+                    System.out.println("++++++++++++++++++++++++++++++++++++");
+                    System.out.println(RS);
+                    break;
+                case 2:
+                    boolean found=false;
+                    System.out.println("select a status ID to search : ");
+                    String status_ID=sc2.nextLine();
+                    i=RS.iterator();
+                    while(i.hasNext()){
+                        Reimbursements rs=i.next();
+                        if(rs.getstatus_ID()==status_ID){
+                            System.out.println(rs);
+                            found=true;
+                        }
+                    }
+                    System.out.println("++++++++++++++++++++++++++++++++++++++++");
+                    if(!found){System.out.println("Status Not Found");}
+                    break;
+                case 3: // ===== ,Manager can Update RS Status
+                    found =false;
+                    System.out.println("Enter RS Status to update");
+                    String statusID=sc2.nextLine();
+                    System.out.println(" ++++++++++++++++++++++++++++++++++++");
+                    ListIterator<Reimbursements>li=RS.listIterator();
+                    while(li.hasNext()){
+                        Reimbursements rs=li.next();
+                        if(rs.getstatus_ID()==statusID){
+                            author_ID =getauthor_ID();
+                            String RS_ID=getreimbursement_ID();
+                            Double Amount=getamount();
+                            System.out.println(author_ID+" "+RS_ID+" "+ Amount);
+                            System.out.println("Enter a new status :");
+                            statusID=sc2.nextLine();
+                            li.set(new Reimbursements(author_ID,RS_ID,Amount,statusID));
+                            found=true;
+                        }
+                    }
+                    if (!found){ System.out.println("Status not found");}
+                    else {System.out.println("Record  has been updated");}
+                    break;
+            }
+        }while(ch!=0);
     }
 }
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-=======
-}
->>>>>>> 79994273035ad20e7e98629e861218c1aba0f738

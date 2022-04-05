@@ -23,6 +23,8 @@ public class User {
         this.Given_Name = Given_Name;
         this.Surname = Surname;
         this.role = role;
+
+
     }
     public String getUserID(){return user_id;}
     public void setID (String user_id) {

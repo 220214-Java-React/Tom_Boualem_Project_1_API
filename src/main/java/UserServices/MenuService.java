@@ -53,16 +53,14 @@ import UserServices.*;
             // Financial Manager Menu
             public static class FinanceManager extends Menu {
                 private final String[] menuOptions = {
-                        "1) Create Reimbursement",
-                        "2) Aprove Reimbursement ",
-                        "3) View All Reimbursements ",
-                        "0) Log Out"
+                        "1) To Login",
+                        "2) To request Registration"
                 };
                 private FinanceManager() {
                     super(ScannerFactory.getScanner());
                 }
                 public int display() {
-                    System.out.println("\n>>>>>>>> Manager Menu <<<<<<<<");
+                    System.out.println("\n>>> Manager Menu <<<");
                     return super.display(this.menuOptions);
                 }
             }
@@ -77,7 +75,7 @@ import UserServices.*;
                     super(ScannerFactory.getScanner());
                 }
                 public int display() {
-                    System.out.println("\n>>>>>>>> Employee Menu <<<<<<<<");
+                    System.out.println("\n>>> Employee Menu <<<");
                     return super.display(this.menuOptions);
                 }
             }
