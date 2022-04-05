@@ -18,7 +18,7 @@ public class UserRepositoryTest {
     @Test
     public void TestingThatWhenCreatingTheUserNoExceptionIsThrown()
     {
-        User user=new User("Admin", "Password");
+        User user=new User("Admin","Password");
 
         Assertions.assertDoesNotThrow(()->UserRepository.create(user));
     }

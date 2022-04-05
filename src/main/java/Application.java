@@ -1,24 +1,23 @@
-import UserServices.Admin;
-import UserServices.FinanceManager;
 import UserServices.UserService;
-import Util.ScannerFactory;
+import model.Reimbursements;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import Repository.UserRepository;
+
 import java.security.NoSuchAlgorithmException;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 import model.User;
 import UserServices.MenuService;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import java.security.NoSuchAlgorithmException;
+
 public class Application {
     private static User currentUser;
     private static UserService userService;
+    private static Reimbursements reimbursement;
     private static Logger logger;
     public static void run() throws NoSuchAlgorithmException {
         configure();
-        System.out.println("-- Welcome --");
+        System.out.println("-- Welcome To ERS System--");
         while(true){
             if(currentUser == null){
                 mainMenu();
@@ -33,25 +32,37 @@ public class Application {
             }
         }
     private static void mainMenu() throws NoSuchAlgorithmException {
-        switch(MenuService.main.display()){
-            case 1: homeMenuAdmin();
-                break;
-            case 2: homeMenuFinanceManager();
-                break;
-            case 3: homeMenuEmployee();
-                  break;
-            case 0: System.exit(0);
-                break;
-            default:
-                break;
+            switch (MenuService.main.display()) {
+                case 1: currentUser =userService.login();
+                    homeMenuAdmin();
+                    break;
+                case 2:
+                    currentUser= userService.login();
+                    homeMenuFinanceManager();
+                    break;
+                case 3:
+                    currentUser = userService.login();
+                    homeMenuEmployee();
+                    break;
+                case 0:
+                    System.exit(0);
+                    break;
+                default:
+                    break;
+            }
         }
-    }
-          // ---------- Admin menu
+  // ---------- Admin menu
     private static void homeMenuAdmin() throws NoSuchAlgorithmException {
         switch (MenuService.AdminMenu.display()) {
-            case 1://CreateUser();
+            case 1:
+                List <User> users=new ArrayList<User>();
+                UserService userService=new UserService();
+                userService.register();
+                users.add( new User());
+                System.out.println("You have added a new User(Employee)");
+                //CreateUser();
                 break;
-            case 2://UpdateUser();
+            case 2: //UpdateUser();
                 break;
             case 3://DeleteUser();
                 break;
@@ -62,11 +73,13 @@ public class Application {
                 break;
         }
     }
+    // ManagerFunctions  is Boualem Task
     private static void homeMenuFinanceManager() {
             switch (MenuService.ManagerMenu.display()) {
-                case 1://ViewAllReimbursements();
+                case 1: reimbursement.reimbursement();
                     break;
-                case 2: //ViewReimbursementsByStatus();
+                case 2://view all reimbursement and sort base on TYpe or status
+
                     break;
                 case 3://AproveReimbursement();
                     break;
@@ -76,6 +89,7 @@ public class Application {
                 default:
                     break;
             }
+            //  Employee is Tom Task
         }
         private static void homeMenuEmployee() {
                 switch (MenuService.EmployeeMenu.display()) {
@@ -101,6 +115,6 @@ public class Application {
             } catch (NoSuchAlgorithmException e) {
                 logger.warn(e.getMessage(), e);
             }
-            //ReimbursementsService= new ReimbursementsService();
+            reimbursement= new Reimbursements();
         }
     }

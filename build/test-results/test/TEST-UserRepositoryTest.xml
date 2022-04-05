@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="UserRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-03-28T11:33:59" hostname="Thomass-MBP.attlocal.net" time="1.349">
+<testsuite name="UserRepositoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-02T00:38:58" hostname="LAPTOP-U3PKQF7I" time="1.499">
   <properties/>
-  <testcase name="TestingThatWhenCreatingTheUserNoExceptionIsThrown()" classname="UserRepositoryTest" time="1.349"/>
+  <testcase name="TestingThatWhenCreatingTheUserNoExceptionIsThrown()" classname="UserRepositoryTest" time="1.499"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

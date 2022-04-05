@@ -1,16 +1,22 @@
 package UserServices;
+import model.Reimbursements;
 import model.User;
 import UserServices.UserService;
 
 import java.security.NoSuchAlgorithmException;
-
+import java.util.ArrayList;
+import java.util.*;
 
 public class FinanceManager extends User {
 
-    public void manager() throws NoSuchAlgorithmException {
-
+    public void FinancemanagerLogin() throws NoSuchAlgorithmException {
         UserService login = new UserService();
         login.login();
+      Reimbursements FinaceManagerRS=new Reimbursements();
+
+
+
+
 
     }
 

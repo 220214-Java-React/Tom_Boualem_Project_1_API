@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ConnectionFactoryTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-04-02T00:38:54" hostname="LAPTOP-U3PKQF7I" time="3.753">
+  <properties/>
+  <testcase name="CheckingThatWhenWeCallTheConnectionNoExceptionIsThrown()" classname="ConnectionFactoryTest" time="3.753"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -9,7 +9,6 @@ import UserServices.*;
             ManagerMenu = new FinanceManager();
             EmployeeMenu = new Employee();
         }
-
         public static Main main;
         //----------------------------
         public static Admin AdminMenu;
@@ -28,7 +27,7 @@ import UserServices.*;
             }
             //--------------------------
             public int display() {
-                System.out.println("\n-- Main Menu --");
+                System.out.println("\n>>>>>>>> Main Menu <<<<<<<<");
                 return super.display(this.menuOptions);
             }
         }
@@ -46,7 +45,7 @@ import UserServices.*;
             }
 
             public int display() {
-                System.out.println("\n-- Admin Menu --");
+                System.out.println("\n>>>>>>>> Admin Menu <<<<<<<<");
                 return super.display(this.menuOptions);
             }
         }
@@ -63,7 +62,7 @@ import UserServices.*;
                     super(ScannerFactory.getScanner());
                 }
                 public int display() {
-                    System.out.println("\n-- Manager Menu --");
+                    System.out.println("\n>>>>>>>> Manager Menu <<<<<<<<");
                     return super.display(this.menuOptions);
                 }
             }
@@ -78,7 +77,7 @@ import UserServices.*;
                     super(ScannerFactory.getScanner());
                 }
                 public int display() {
-                    System.out.println("\n-- Employee Menu --");
+                    System.out.println("\n>>>>>>>> Employee Menu <<<<<<<<");
                     return super.display(this.menuOptions);
                 }
             }
