@@ -24,6 +24,13 @@ public class Reimbursements  {
 
     public Reimbursements(String userID, String rs_id, Double amount,String status_ID) {
     }
+<<<<<<< HEAD
+=======
+
+    public Reimbursements(String reimbursement_id) {
+    }
+
+>>>>>>> 709e8b99ff963207584a253b0256578399927c36
     //Getters and Setters:
     //Reimbursement ID -----------------------------------
     public String getreimbursement_ID() {
