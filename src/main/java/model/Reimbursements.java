@@ -38,7 +38,10 @@ public class Reimbursements  {
         this.resolved = resolved;
         
     }
-    
+
+    public Reimbursements(String reimbursement_id) {
+    }
+
     //Getters and Setters:
     
     //Reimbursement ID -----------------------------------

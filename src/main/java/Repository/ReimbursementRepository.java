@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ReimbursementRepository {
@@ -52,6 +53,23 @@ public class ReimbursementRepository {
     }
 
     // ------
-    
+
+    public Reimbursements getByreimbursement_ID(String reimbursement_ID) {
+        Reimbursements reimbursements = null;
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            String sql = "select * from ers_reimbursements where reimbursement_ID = ?";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+
+            stmt.setString(1, reimbursement_ID);
+            ResultSet resultSet = stmt.executeQuery();
+            if(resultSet.next()) {
+                reimbursements = new Reimbursements(
+                        resultSet.getString("reimbursement_ID"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return reimbursements;
+    }
 
 }
