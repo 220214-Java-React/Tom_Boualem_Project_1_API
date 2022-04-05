@@ -39,7 +39,6 @@ import UserServices.*;
                     "3) Delete User",
                     "0) Log Out"
             };
-
             private Admin() {
                 super(ScannerFactory.getScanner());
             }
@@ -49,7 +48,6 @@ import UserServices.*;
                 return super.display(this.menuOptions);
             }
         }
-            //--------------------------------------------
             // Financial Manager Menu
             public static class FinanceManager extends Menu {
                 private final String[] menuOptions = {

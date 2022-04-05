@@ -1,8 +1,5 @@
 package Repository;
-
-
 // Store reimbursements made by employee.
-
 import Util.ConnectionFactory;
 import model.Reimbursements;
 import org.apache.logging.log4j.LogManager;
@@ -12,24 +9,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-public class ReimbursementRepository {
-
-<<<<<<< HEAD
-
-
-
-=======
+public class ReimbursementRepository  {
     private static final Logger logger = LogManager.getLogger(ReimbursementRepository.class);
-
-
     public void create(Reimbursements reimbursements) {
         Connection connection = null;
         try {
             connection = ConnectionFactory.getConnection();
             String sql = "insert into ers_reimbursements(reimbursement_ID, amount, paymentID, author_ID, resolver_ID," +
                     "status_ID, type_ID, description, submitted, resolved)";
-
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, reimbursements.getreimbursement_ID());
             stmt.setDouble(2, reimbursements.getamount());
@@ -41,8 +28,6 @@ public class ReimbursementRepository {
             stmt.setString(8, reimbursements.getdescription());
             stmt.setTimestamp(9, reimbursements.getsubmitted());
             stmt.setTimestamp(10, reimbursements.getresolved());
-
-
         } catch (SQLException e) {
             logger.warn(e.getMessage(), e);
             e.printStackTrace();
@@ -56,9 +41,7 @@ public class ReimbursementRepository {
             }
         }
     }
-
     // ------
-
     public Reimbursements getByreimbursement_ID(String reimbursement_ID) {
         Reimbursements reimbursements = null;
         try (Connection connection = ConnectionFactory.getConnection()) {
@@ -76,6 +59,4 @@ public class ReimbursementRepository {
         }
         return reimbursements;
     }
-
->>>>>>> 709e8b99ff963207584a253b0256578399927c36
 }

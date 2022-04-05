@@ -12,10 +12,6 @@ public class Admin extends User {
         register.register();
     }
 
-<<<<<<< HEAD
-
-
-=======
     public void updateUser() {
 
     }
@@ -23,6 +19,6 @@ public class Admin extends User {
     public void deleteUser() {
 
     }
->>>>>>> 79994273035ad20e7e98629e861218c1aba0f738
+
 
 }

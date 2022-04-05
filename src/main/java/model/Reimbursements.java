@@ -1,7 +1,5 @@
 package model;
-import jdk.net.SocketFlow;
-import java.*;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.*;
 public class Reimbursements  {
     List <Reimbursements>RS=new ArrayList<>();
@@ -16,21 +14,18 @@ public class Reimbursements  {
     private Timestamp submitted;
     private Timestamp resolved;
     public Reimbursements(){ };
+
     public Reimbursements (String reimbursement_ID, double amount, String paymentID, String author_ID,
                            String resolver_ID, String status_ID, String type_ID, String description, 
                            Timestamp submitted,  Timestamp resolved)
     {this.reimbursement_ID = reimbursement_ID;this.amount = amount;this.paymentID = paymentID;this.author_ID = author_ID;this.resolver_ID = resolver_ID;
-        this.status_ID = status_ID;this.type_ID = type_ID;this.description = description;this.submitted = submitted;this.resolved = resolved;}
+        this.status_ID = status_ID;this.type_ID = type_ID;
+        this.description = description;this.submitted = submitted;this.resolved = resolved;}
 
     public Reimbursements(String userID, String rs_id, Double amount,String status_ID) {
     }
-<<<<<<< HEAD
-=======
-
     public Reimbursements(String reimbursement_id) {
     }
-
->>>>>>> 709e8b99ff963207584a253b0256578399927c36
     //Getters and Setters:
     //Reimbursement ID -----------------------------------
     public String getreimbursement_ID() {
@@ -59,10 +54,10 @@ public class Reimbursements  {
     public String getdescription() {return description;}
     public void setdescription(String description) {this.description = description;}
     //Submitted Status ----------------------------------------------------
-    public Timestamp getsubmitted() {return submitted;}
+    public java.sql.Timestamp getsubmitted() {return submitted;}
     public void setsubmitted(Timestamp submitted) {this.submitted = submitted;}
     //Resolved Status ----------------------------------------------------------
-    public Timestamp getresolved() {return resolved;}
+   public java.sql.Timestamp getresolved() {return resolved;}
     public void setresolved(Timestamp resolved) {this.resolved = resolved;}
     // END OF GETTERS AND SETTERS
 public void addToRSList(){
@@ -112,7 +107,6 @@ public void addToRSList(){
                }
                System.out.println("++++++++++++++++++++++++++++++++++++++++");
                if(!found){System.out.println("Status Not Found");}
-
             break;
 // ================= we can use this in the admin to remove users/delete them
             case 4:
@@ -157,9 +151,7 @@ public void addToRSList(){
                 else {System.out.println(" has been Record updated");}
                  break;
         }
-
         }while(ch!=0);
-
     }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     public void ManagerUpdateRS(){

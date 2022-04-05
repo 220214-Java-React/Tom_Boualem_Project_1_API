@@ -39,7 +39,6 @@ public class UserRepository implements DAO<User>{
             }
         }
     }
-
     //---------------------------------------------------------------------
     public User getByUsername(String username){
         User user = null;
